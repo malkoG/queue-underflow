@@ -8,7 +8,7 @@ defmodule QueueUnderflow.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
-
+  
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -20,7 +20,9 @@ defmodule QueueUnderflow.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", QueueUnderflow do
-  #   pipe_through :api
-  # end
+  scope "/api", QueueUnderflow do
+    pipe_through :api
+
+    get "/hello", HelloController, :index
+  end
 end
