@@ -29,7 +29,7 @@ config :queue_underflow, QueueUnderflow.Endpoint,
 config :queue_underflow, QueueUnderflow.Endpoint,
   # leave other settings and change the `watchers` option.
   watchers: [ node: [ "node_modules/webpack/bin/webpack.js",
-		      "--watch-stdin --progress --color",
+		      "--watch", "--progress", "--color",
 		      cd: Path.expand("../", __DIR__) ] ]
 
 # Do not include metadata nor timestamps in development logs
